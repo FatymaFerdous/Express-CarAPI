@@ -33,41 +33,45 @@ const getCategoryByID = async (req, res) => {
 }
 
 const createCategory = async (req, res) => {
-    const { CategoryName, CategoryImage } = req.body;
+    const { CategoryName, CategoryImage } = req.body
 
     if (!CategoryName || !CategoryImage) {
         res.status(403).json({
             message: "Missing Required Field"
-        });
+        })
     }
-     else {
-        CategoryName = CategoryName.toUpperCase();
 
+    else {
         try {
-            await connect(process.env.MONGO_URI);
-            const checkExisting = await Category.exists({ CategoryName });
+            await connect(process.env.MONGO_URI)
+            const checkExisting = await Category.exists({ CategoryName })
 
             if (checkExisting) {
                 res.status(400).json({
                     message: "Category Already Exists"
-                });
-            } 
+                })
+            }
+
             else {
-                await Category.create({ CategoryName, CategoryImage });
-                const allCategories = await Category.find();
+                await Category.create({ CategoryName, CategoryImage })
+                const allCategories = await Category.find()
 
                 res.json({
                     message: "DB Connected",
                     category: allCategories
-                });
+                })
+
             }
-        } catch (error) {
+        }
+
+
+        catch (error) {
             res.status(400).json({
                 message: error.message
-            });
+            })
         }
     }
-};
+}
 
 
 const updateCategory = async (req, res) => {
