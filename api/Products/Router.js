@@ -9,7 +9,7 @@ router.get('/get-product-by-name' , getProductByName)
 router.get('/get-product-by-id' , getProductById)
 router.get('/get-product-by-brand' , getProductByBrand)
 router.get('/get-product-by-category' , getProductByCategory)
-router.update('/update-product' , updateProduct)
+router.put('/update-product' , updateProduct)
 router.delete('/delete-product' , deleteProduct)
 
 
