@@ -1,4 +1,4 @@
-const Category = require('./model');
+const Category = require('./Model.js')
 const {connect} = require('mongoose')
 require('dotenv').config()
 
