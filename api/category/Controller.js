@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 const Category = require('./Model');
+=======
+const Category = require('./Model.js')
+>>>>>>> 69d83a1992d0bdcfca51e6e66989fe1d2ff60b59
 const {connect} = require('mongoose')
 require('dotenv').config()
 
